@@ -2,9 +2,10 @@ require_relative 'redpencil'
 
 describe RedPencil do
   before(:each) do 
-    @promotion = RedPencil.new(100,80)
-    @promotion1 = RedPencil.new(100,98)
-    @promotion2 = RedPencil.new(100,68)
+    @promotion = RedPencil.new(100,80,31)
+    @promotion1 = RedPencil.new(100,98,31)
+    @promotion2 = RedPencil.new(100,68,31)
+    @promotion2 = RedPencil.new(100,68,29)
   end
 
   describe 'promotion begin' do
@@ -18,6 +19,10 @@ describe RedPencil do
 
     it 'but no more than 30% reduction' do
       expect(@promotion2.promo?).to eq false
+    end
+
+    it 'if discount stablility > 30 days' do
+      expect(@promotion3.promo?).to eq false
     end
   end
 end
