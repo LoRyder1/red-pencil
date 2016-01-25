@@ -5,7 +5,11 @@ class RedPencil
   end
 
   def promo?
-    @price > @promo_price && percent_off > 5
+    @price > @promo_price && promo_in_range?
+  end
+
+  def promo_in_range?
+    percent_off > 5 && percent_off < 30
   end
 
   def percent_off
