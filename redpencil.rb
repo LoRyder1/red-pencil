@@ -1,0 +1,4 @@
+
+class RedPencil
+  
+end
