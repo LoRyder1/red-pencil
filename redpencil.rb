@@ -1,11 +1,19 @@
 
 class RedPencil
-  def initialize price, promo_price
-    @price, @promo_price = price, promo_price
+  def initialize price, promo_price, stability
+    @price, @promo_price, @stability = price, promo_price, stability
   end
 
   def promo?
-    @price > @promo_price && promo_in_range?
+    price_larger? && promo_in_range? && stable?
+  end
+
+  def stable?
+    @stability >= 30  
+  end
+
+  def price_larger?
+    @price > @promo_price
   end
 
   def promo_in_range?
@@ -18,6 +26,6 @@ class RedPencil
 
 end
 
-x = RedPencil.new(100,80)
+# x = RedPencil.new(100,80,30)
 
 # p x.percent_off

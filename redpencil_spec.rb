@@ -5,7 +5,7 @@ describe RedPencil do
     @promotion = RedPencil.new(100,80,31)
     @promotion1 = RedPencil.new(100,98,31)
     @promotion2 = RedPencil.new(100,68,31)
-    @promotion2 = RedPencil.new(100,68,29)
+    @promotion3 = RedPencil.new(100,68,29)
   end
 
   describe 'promotion begin' do
