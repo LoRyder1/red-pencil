@@ -47,6 +47,3 @@ class Product
     @sale_length = sale_length
   end
 end
-# x = RedPencil.new(100,80,30)
-
-# p x.percent_off
