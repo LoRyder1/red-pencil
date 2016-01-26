@@ -42,5 +42,10 @@ describe RedPencil do
       @promotion.reduce_promo_price(5)
       expect(@product.sale_length).to eq 29
     end
+
+    it 'if price increased promo will end immediately' do
+      @promotion.increase_promo_price(5)
+      expect(@promotion.promo?).to eq false
+    end
   end
 end
