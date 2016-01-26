@@ -12,6 +12,10 @@ class RedPencil
     product.sale_length < 30  
   end
 
+  def reduce_promo_price amount
+    @promo_price -= amount  
+  end
+
   private
   def stable?
     @stability >= 30  
