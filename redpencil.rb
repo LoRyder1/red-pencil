@@ -2,10 +2,11 @@
 class RedPencil
   def initialize price, promo_price, stability
     @price, @promo_price, @stability = price, promo_price, stability
+    @price_increase = false
   end
 
   def promo?
-    price_larger? && promo_in_range? && stable?
+    price_larger? && promo_in_range? && stable? && !@price_increase
   end
 
   def valid? product
@@ -16,7 +17,13 @@ class RedPencil
     @promo_price -= amount  
   end
 
+  def increase_promo_price amount
+    @promo_price += amount
+    @price_increase = true
+  end
+
   private
+
   def stable?
     @stability >= 30  
   end
