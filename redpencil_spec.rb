@@ -29,9 +29,9 @@ describe RedPencil do
   describe 'product promotion' do
     it 'lasts maximum 30 days' do
       @product = Product.new(29)
-      @product = Product.new(31)
-      expect(@promotion.valid(@product)).to eq true
-      expect(@promotion.valid(@product)).to eq false
+      @product1 = Product.new(31)
+      expect(@promotion.valid?(@product)).to eq true
+      expect(@promotion.valid?(@product1)).to eq false
     end
   end
 end

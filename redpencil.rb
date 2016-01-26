@@ -8,6 +8,11 @@ class RedPencil
     price_larger? && promo_in_range? && stable?
   end
 
+  def valid? product
+    product.sale_length < 30  
+  end
+
+  private
   def stable?
     @stability >= 30  
   end
@@ -25,6 +30,12 @@ class RedPencil
   end
 end
 
+class Product
+  attr_reader :sale_length
+  def initialize sale_length
+    @sale_length = sale_length
+  end
+end
 # x = RedPencil.new(100,80,30)
 
 # p x.percent_off
