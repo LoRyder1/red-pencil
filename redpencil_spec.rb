@@ -27,11 +27,20 @@ describe RedPencil do
   end
 
   describe 'product promotion' do
-    it 'lasts maximum 30 days' do
+    before(:each) do
       @product = Product.new(29)
       @product1 = Product.new(31)
+    end
+
+    it 'lasts maximum 30 days' do
       expect(@promotion.valid?(@product)).to eq true
       expect(@promotion.valid?(@product1)).to eq false
+    end
+
+    it 'if price reduced further, promo length same' do
+      expect(@product.sale_length).to eq 29
+      @promotion.reduce_promo_price(5)
+      expect(@product.sale_length).to eq 29
     end
   end
 end
